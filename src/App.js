@@ -1,24 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import {Container} from "@material-ui/core";
+import {blueGrey} from "@material-ui/core/colors";
+import ResultsTable from "./components/ResultsTable";
+import Form from "./components/Form";
 
 function App() {
+  const arr = [{win: 30, lose: 60, draw: 10, res: 'win'},{win: 30, lose: 60, draw: 10, res: 'win'},{win: 30, lose: 60, draw: 10, res: 'win'},{win: 30, lose: 60, draw: 10, res: 'win'},{win: 30, lose: 60, draw: 10, res: 'win'},{win: 30, lose: 60, draw: 10, res: 'win'},{win: 30, lose: 60, draw: 10, res: 'win'},{win: 30, lose: 60, draw: 10, res: 'win'},{win: 30, lose: 60, draw: 10, res: 'win'},{win: 30, lose: 60, draw: 10, res: 'win'},{win: 30, lose: 60, draw: 10, res: 'win'},{win: 30, lose: 60, draw: 10, res: 'win'},{win: 30, lose: 60, draw: 10, res: 'win'},{win: 30, lose: 60, draw: 10, res: 'win'},{win: 30, lose: 60, draw: 10, res: 'win'},{win: 30, lose: 60, draw: 10, res: 'win'},{win: 30, lose: 60, draw: 10, res: 'win'},{win: 30, lose: 60, draw: 10, res: 'win'},{win: 30, lose: 60, draw: 10, res: 'win'},{win: 30, lose: 60, draw: 10, res: 'win'},{win: 30, lose: 60, draw: 10, res: 'win'},{win: 30, lose: 60, draw: 10, res: 'win'},{win: 30, lose: 60, draw: 10, res: 'win'},{win: 30, lose: 60, draw: 10, res: 'win'},{win: 30, lose: 60, draw: 10, res: 'win'},{win: 30, lose: 60, draw: 10, res: 'win'},{win: 30, lose: 60, draw: 10, res: 'win'}]
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container style={{backgroundColor: blueGrey.A100, height: '100%', display: 'flex', flexDirection: 'column'}}>
+      <ResultsTable arr={arr}/>
+      <Form onSubmit={null}/>
+    </Container>
   );
 }
 
