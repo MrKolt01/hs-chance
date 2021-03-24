@@ -42,23 +42,38 @@ const ResultsTable = ({ arr = [] }) => {
     }, 0);
   };
 
-  const eqPercent = (x, y) => {
-    if (x === y) return 100;
-    if (y === 0) return 0;
-    return Math.round(100 - (Math.abs(x - y) / y) * 100);
+  const eqPercentNew = (xArr, yArr) => {
+    if (xArr.length === 0) return 100;
+    return Math.round(
+      (xArr.reduce(
+        (acc, current, idx) => acc + (100 - Math.abs(current - yArr[idx])),
+        0
+      ) /
+        (xArr.length * 100)) *
+        100
+    );
   };
 
   const winP = prediction("win");
   const winF = fact("win");
-  const winEq = eqPercent(winP, winF);
+  const winEq = eqPercentNew(
+    arr.map((el) => el.win),
+    arr.map((el) => (el.res === "win" ? 100 : 0))
+  );
 
   const drawP = prediction("draw");
   const drawF = fact("draw");
-  const drawEq = eqPercent(drawP, drawF);
+  const drawEq = eqPercentNew(
+    arr.map((el) => el.draw),
+    arr.map((el) => (el.res === "draw" ? 100 : 0))
+  );
 
   const lossP = prediction("loss");
   const lossF = fact("loss");
-  const lossEq = eqPercent(lossP, lossF);
+  const lossEq = eqPercentNew(
+    arr.map((el) => el.loss),
+    arr.map((el) => (el.res === "loss" ? 100 : 0))
+  );
 
   const sumEq = Math.round((winEq + lossEq + drawEq) / 3);
 
