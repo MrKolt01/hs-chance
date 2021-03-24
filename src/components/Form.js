@@ -42,6 +42,24 @@ const Form = ({ onSubmit }) => {
   const [result, setResult] = React.useState("win");
 
   const handleChangeResult = (event) => {
+    if (!isLossTouched && !isWinTouched) {
+      switch (event.target.value) {
+        case "win":
+          setWinChance(100);
+          setLossChance(0);
+          break;
+        case "loss":
+          setWinChance(0);
+          setLossChance(100);
+          break;
+        case "draw":
+          setWinChance(0);
+          setLossChance(0);
+          break;
+        default:
+          break;
+      }
+    }
     setResult(event.target.value);
     setIsResultTouched(true);
   };
