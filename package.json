@@ -2,6 +2,10 @@
   "name": "hs-chance",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "yarn": "1.22.10",
+    "node": "14.17.0"
+  },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/data-grid": "^4.0.0-alpha.23",
