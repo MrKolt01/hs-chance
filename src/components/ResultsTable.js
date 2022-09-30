@@ -234,7 +234,7 @@ const ResultsTable = ({ arr = [] }) => {
     <div className={styles.root}>
       <div className={styles.TableWrapper}>
         <Typography variant="h5" gutterBottom>
-          Статистика
+          СТАТИСТИКА
         </Typography>
         <DataGrid
           components={{
